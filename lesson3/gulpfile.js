@@ -5,7 +5,6 @@ var browserSync = require('browser-sync').create();
 
 gulp.task('default', ['styles'], function() {
 	gulp.watch('sass/**/*.scss', ['styles']);
-
 	browserSync.init({
 		server: './'
 	});
@@ -17,6 +16,5 @@ gulp.task('styles', function() {
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions']
 		}))
-		.pipe(gulp.dest('./css'))
-		.pipe(browserSync.stream());
+		.pipe(gulp.dest('./css')).pipe(browserSync.stream());
 });
